@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+'-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+'http://hibernate.sourceforge.net /hibernate-mapping-3.0.dtd'>
+
+
+<hibernate-mapping>
+	<class name="pers.mjw.User" table="user">
+		<id name="name" column="name" type="java.lang.String">
+			<!-- <generator class="native"/> -->
+		</id>
+		<property name="password" column="password" type="java.lang.String"></property>
+		<property name="grade" column="grade" type="java.lang.String"></property>
+		<property name="gender" column="gender" type="java.lang.String"></property>
+		<property name="hobbyall" column="hobby" type="java.lang.String"></property>
+		<property name="friendall" column="friend" type="java.lang.String"></property>
+	</class>
+</hibernate-mapping>
