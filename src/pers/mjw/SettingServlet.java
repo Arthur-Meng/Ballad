@@ -95,22 +95,18 @@ public class SettingServlet extends HttpServlet {
 						}
 						password = value;
 						user.setPassword(password);
-						System.out.println(value);
 					}
 					if (name.equals("grade")) {
 						grade = value;
 						user.setGrade(grade);
-						System.out.println(value);
 					}
 					if (name.equals("gender")) {
 						gender = value;
 						user.setGender(gender);
-						System.out.println(value);
 					}
 					if (name.equals("Hobby")) {
 						hobbyall += "-" + value;
 						user.setHobbyall(hobbyall);
-						System.out.println(value);
 					}
 				} else {
 					if (item.getName() != null) {
@@ -124,7 +120,7 @@ public class SettingServlet extends HttpServlet {
 							fileName = fileName.substring(index + 1);
 						}
 						String myfilename = "D:\\TomCat\\apache-tomcat-8.5.11\\webapps\\Pic\\" + username + ".jpg";
-						System.out.println(myfilename);
+						
 						File uploadedFile = new File(myfilename);
 						try {
 							item.write(uploadedFile);
@@ -157,7 +153,6 @@ public class SettingServlet extends HttpServlet {
 		try {
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url, sqluser, psw);
-			System.out.println(con);
 			PreparedStatement pstmt = ((java.sql.Connection) con).prepareStatement(strsql);
 			pstmt.setString(1, password);
 			pstmt.setString(2, grade);

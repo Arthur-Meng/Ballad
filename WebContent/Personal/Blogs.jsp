@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>动态</title>
+<link rel="stylesheet" href="all.css" type="text/css" />
 <style type="text/css">
 .header {
 	display: none;
@@ -85,37 +86,41 @@
 	window.location.href=encodeURI("addcomment?blogname="+myname+"&blogdate="+mydate+"&comment="+myComment);
 	}
 	</script>
-	<h1>个人中心</h1>
-	<display:table name="Blog2" id="showblog">
-		<!-- 不用第几个对象，直接用showblog当作对象会更加简单 -->
-		<display:column title="(showblog_rowNum)" style="display:none"
-			headerClass="header">
-			<%
-				k = (int) pageContext.getAttribute("showblog_rowNum");
-			%>
-		</display:column>
-		<display:column title="头像">
-			<img src=<%="..\\Pic\\" + blog.get(k - 1).getName() + ".jpg"%>
-				height="50" width="50" />
-		</display:column>
-		<display:column property="name" title="用户" />
-		<display:column property="head" title="标题" />
-		<display:column title="图片">
-			<img
-				src=<%="..\\Pic\\" + blog.get(k - 1).getName() + "-" + blog.get(k - 1).getDate() + ".jpg"%>
-				height="50" width="50" />
-		</display:column>
-		<display:column property="text" title="内容" />
-		<display:column property="date" title="日期" />
-		<display:column property="commentall" title="评论" />
-		<display:column title="添加评论">
-			<input name="addComment" type="text"
-				id=<%="comment" + String.valueOf(k - 1)%>>
-			<a
-				onclick="makecomment(<%=blog.get(k - 1).getName()%>,'<%=blog.get(k - 1).getDate()%>',<%=k - 1%>)"
-				href="#">添加</a>
-		</display:column>
-	</display:table>
+	<div >
+		<h1>个人中心</h1>
+		<div align="center">
+			<display:table name="Blog2" id="showblog" cellpadding="30px">
+				<!-- 不用第几个对象，直接用showblog当作对象会更加简单 -->
+				<display:column title="(showblog_rowNum)" style="display:none"
+					headerClass="header">
+					<%
+						k = (int) pageContext.getAttribute("showblog_rowNum");
+					%>
+				</display:column>
+				<display:column title="头像">
+					<img src=<%="..\\Pic\\" + blog.get(k - 1).getName() + ".jpg"%>
+						height="100" width="100" />
+				</display:column>
+				<display:column property="name" title="用户" />
+				<display:column property="head" title="标题" />
+				<display:column title="图片">
+					<img
+						src=<%="..\\Pic\\" + blog.get(k - 1).getName() + "-" + blog.get(k - 1).getDate() + ".jpg"%>
+						height="100" width="100" />
+				</display:column>
+				<display:column property="text" title="内容" />
+				<display:column property="date" title="日期" />
+				<display:column property="commentall" title="评论" />
+				<display:column title="添加评论">
+					<input name="addComment" type="text"
+						id=<%="comment" + String.valueOf(k - 1)%>>
+					<a
+						onclick="makecomment(<%=blog.get(k - 1).getName()%>,'<%=blog.get(k - 1).getDate()%>',<%=k - 1%>)"
+						href="#">添加</a>
+				</display:column>
+			</display:table>
+		</div>
+	</div>
 	<div>
 		<jsp:include page="../Foot.jsp"></jsp:include>
 	</div>

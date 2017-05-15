@@ -7,12 +7,13 @@
 <title>WebHead</title>
 <style type="text/css">
 h2 {
-	font-size: 100%;
-	border: solid 1px red;
+	font-size: 120%;
 	display: inline;
+	font-family: 微软雅黑;
 	zoom: 1;
-	padding: 5px;
-	margin: 5px;
+	padding: 3px;
+	margin: 3px;
+	align: center;
 }
 </style>
 </head>
@@ -20,18 +21,18 @@ h2 {
 	<table>
 		<tr>
 			<td>
-				<h2>Ballad Club-just to enjoy the beauty of ballad&nbsp&nbsp&nbsp&nbsp&nbsp</h2>
+				<h2>Ballad Club-just to enjoy the beauty of ballad</h2>
 			</td>
 			<%
 				if (session.getAttribute("IfLogin") == null || !session.getAttribute("IfLogin").equals("Yes")) {
 			%>
-			<td><h2>
+			<td><h2 align="right">
 					<a href="index">首页</a>
 				</h2></td>
-			<td><h2>
+			<td><h2 align="right">
 					<a href="signup">注册</a>
 				</h2></td>
-			<td><h2>
+			<td><h2 align="right">
 					<a href="login">登陆</a>
 				</h2></td>
 

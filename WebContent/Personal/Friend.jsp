@@ -5,86 +5,101 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>好友</title>
+<link rel="stylesheet" href="all.css" type="text/css" />
 </head>
 
 <body>
 	<div>
 		<jsp:include page="../Head.jsp"></jsp:include>
 	</div>
-	<h1>好友</h1>
-	<hr>
-	<%
-		User user = new User();
-		if ((User) session.getAttribute("User") != null)
-			user = (User) session.getAttribute("User");
-		UserDoDAO userDao = new UserDoDAO();
-		if (user.getFriend() != null) {
-			String[] allSearch = user.getFriend();
-			for (int i = 0; i < allSearch.length; i++) {
-				String searchName = allSearch[i];
-				if (user.Iffrined(searchName)) {
-					User searchUser = userDao.find(searchName);
-	%><table>
-		<%
-			if (searchUser.Iffrined(user.getName())) {
-		%><tr>
-			<td><img
-				src=<%="..\\Pic\\" + searchName + ".jpg"%>
-				height="50" width="50" /></td>
-			<td><h3 >
-					<a href="search?searchName=<%=searchName%>"> &nbsp&nbsp&nbsp<%=searchName%>&nbsp&nbsp&nbsp
-					</a>
-				</h3></td>
-		</tr>
-		<%
-			}
-		%>
-	</table>
-	<%
-		}
-			}
+	<div >
+		<hr style="height: opx; border: none;" />
+		<div align="center">
+		<table cellspacing="40px">
+		<tr ><td><h1>好友</h1>
+			<%
+				User user = new User();
+				if ((User) session.getAttribute("User") != null)
+					user = (User) session.getAttribute("User");
+				UserDoDAO userDao = new UserDoDAO();
+				if (user.getFriend() != null) {
+					String[] allSearch = user.getFriend();
+					for (int i = 0; i < allSearch.length; i++) {
+						String searchName = allSearch[i];
+						if (user.Iffrined(searchName)) {
+							User searchUser = userDao.find(searchName);
+			%><table>
+				<%
+					if (searchUser.Iffrined(user.getName())) {
+				%><tr>
+					<td><img src=<%="..\\Pic\\" + searchName + ".jpg"%>
+						height="50" width="50" /></td>
+					<td><h3>
+							<a href="search?searchName=<%=searchName%>"> &nbsp&nbsp&nbsp<%=searchName%>&nbsp&nbsp&nbsp
+							</a>
+						</h3></td>
+				</tr>
+				<%
+					}
+				%>
+			</table>
+			<%
+				}
+					}
 
-		}
-	%>
-	<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+				}
+			%>
+			<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
 
-	<script type="text/javascript">
+			<script type="text/javascript">
 		var goEasy = new GoEasy({
 			appkey: "BC-bf72dea123c24a54a1b4c737bafbcea4"
 			 });
 			goEasy.subscribe({
-			channel: '<%=user.getName().toString()%>',
-			onMessage: function (message) {
-			alert("您被" + message.content+"关注了！");
-			}
-			});
+			channel: '<%=user.getName().toString()%>
+				',
+					onMessage : function(message) {
+						alert("您被" + message.content + "关注了！");
+					}
+				});
+			</script>
+			</td>
+			<td>
+			<h1>已关注</h1>
+			<%
+				if (user.getFriend() != null) {
+					String[] allSearch = user.getFriend();
+					for (int i = 1; i < allSearch.length; i++) {
 
-	</script>
-	<h1>已关注</h1>
-	<hr>
-	<%
-		if (user.getFriend() != null) {
-			String[] allSearch = user.getFriend();
-			for (int i = 1; i < allSearch.length; i++) {
-				
-				String searchName = allSearch[i];
-				
-				if(searchName.equals("-")){}
-				else{
-				
-				%><table><%
-					%><tr>
+						String searchName = allSearch[i];
+
+						if (searchName.equals("-")) {
+						} else {
+			%><table>
+				<%
+					
+				%><tr>
 					<td><img src=<%="..\\Pic\\" + searchName + ".jpg"%>
-					height="50" width="50" /></td>
-					<td><h3><a href="search?searchName=<%=searchName%>">
-					&nbsp&nbsp&nbsp<%=searchName%>&nbsp&nbsp&nbsp</a></h3></td>
-					</tr>
-					<%
-				%></table><%
+						height="50" width="50" /></td>
+					<td><h3>
+							<a href="search?searchName=<%=searchName%>"> &nbsp&nbsp&nbsp<%=searchName%>&nbsp&nbsp&nbsp
+							</a>
+						</h3></td>
+				</tr>
+				<%
+					
+				%>
+			</table>
+			<%
 				}
-			}
-		}
-	%>
+					}
+				}
+			%>
+			</td>
+			</tr>
+			</table>
+		</div>
+	</div>
 	<div>
 		<jsp:include page="../Foot.jsp"></jsp:include>
 	</div>

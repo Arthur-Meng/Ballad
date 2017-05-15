@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Result</title>
+<title>搜到歌曲</title>
+<link rel="stylesheet" href="all.css" type="text/css" />
 </head>
 <script type="text/javascript"
 	src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js "></script>
@@ -106,95 +107,101 @@ $(document).ready(function(){
  */
 </script>
 <body>
-	<table border=0 width=800 height=400 id='table'>
-		<tr>
-			<td></td>
-			<td>歌名</td>
-			<td>歌手</td>
-			<td>大小</td>
-			<td><a id="stop" href=#>关闭</a></td>
-			<td><a aria-hidden="true"
-				href="http://service.weibo.com/share/share.php?title=#_loginLayer_1466697157538">分享到微博</a></td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><a id="song0" href=#>播放</a></td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><a id="song1" href=#>播放</a></td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><a id="song2" href=#>播放</a></td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><a id="song3" href=#>播放</a></td>
-		</tr>
-		<tr>
-			<td>5</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><a id="song4" href=#>播放</a></td>
-		</tr>
-		<tr>
-			<td>6</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><a id="song5" href=#>播放</a></td>
-		</tr>
-		<tr>
-			<td>7</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><a id="song6" href=#>播放</a></td>
-		</tr>
-		<tr>
-			<td>8</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><a id="song7" href=#>播放</a></td>
-		</tr>
-		<tr>
-			<td>9</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><a id="song8" href=#>播放</a></td>
-		</tr>
-		<tr>
-			<td>10</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><a id="song9" href=#>播放</a></td>
-		</tr>
-	</table>
+	<div >
+	<h1>搜索结果</h1>
+		<div align="center">
+		<div id="playaudio" style="display: none;">
+		<table cellpadding="10px"><tr>
+				<td><img src="" id="songpic" width="250" height="250"></img></td>
+				<td><audio src="" autoplay="autoplay" id="playsong" controls="controls"></audio></td>
+				<td><a id="songlrc" href=#>下载歌词</a>
+				<div id="showlrc"></div></td>
+				</tr>
+		</table>
+		</div>
+			<table border=0 width=1000 height=600 id='table'>
+				<tr>
+					<td></td>
+					<td>歌名</td>
+					<td>歌手</td>
+					<td>大小</td>
+					<td><a id="stop" href=#>关闭</a></td>
+					<td><a aria-hidden="true"
+						href="http://service.weibo.com/share/share.php?title=#_loginLayer_1466697157538">分享到微博</a></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a id="song0" href=#>播放</a></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a id="song1" href=#>播放</a></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a id="song2" href=#>播放</a></td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a id="song3" href=#>播放</a></td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a id="song4" href=#>播放</a></td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a id="song5" href=#>播放</a></td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a id="song6" href=#>播放</a></td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a id="song7" href=#>播放</a></td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a id="song8" href=#>播放</a></td>
+				</tr>
+				<tr>
+					<td>10</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a id="song9" href=#>播放</a></td>
+				</tr>
+			</table>
 
-
-	<div id="playaudio" style="display: none;">
-		<img src="" id="songpic" width="150" height="150"></img>
-
-		<audio src="" autoplay="autoplay" id="playsong" controls="controls"></audio>
-		<a id="songlrc" href=#>下载歌词</a>
-		<div id="showlrc"></div>
+		</div>
 	</div>
 </body>
 </html>
